@@ -1,0 +1,79 @@
+#v3
+	background-color $fg
+	color $bg
+	#content
+		position relative
+		width 100%
+		height 100vh
+		overflow hidden
+		&:after
+			content ''
+			display block
+			position absolute
+			width 100%
+			height $play-height * 1.25
+			bottom 0
+			left 0
+			background linear-gradient(to bottom, rgba($primary, 0), #000 100%)
+	#plays
+		position absolute
+		z-index set-index(overlay)
+		bottom 0
+		left 0
+		width 100%
+		display flex
+		align-items flex-end
+		height $play-height
+		transition transform 500ms ease-in-out
+		&:hover
+			transform translateX(0)
+		.play
+			width 100%
+			position relative
+			padding 1rem
+			width $play-width
+			opacity 0.33
+			transition opacity 500ms ease-in-out
+			flex 1 0 auto
+			p
+				margin 0
+			&.is-active
+				opacity 1
+				.title
+					set-type-size(large, false)
+			.title
+				margin 0
+				width 100%
+				font-weight 900
+				set-type-size(medium, false)
+				line-height 1.2
+				text-shadow 0 0 3px rgba($fg, 0.5)
+
+			.info
+				margin-top 0.5rem
+				display flex
+				justify-content space-between
+				transition opacity 500ms ease-in-out
+				p
+					set-type-size(x-small, false)
+					line-height 1
+					font-weight 500
+					text-transform uppercase
+
+	#media
+		position fixed
+		top 0
+		left 0
+		width 100%
+		height 100vh
+		video
+			position fixed
+			top 50%
+			left 50%
+			min-width 100%
+			min-height 100%
+			width auto
+			height auto
+			transform translate(-50%, -50%)
+		.media-overlay
+			opacity 0.5
