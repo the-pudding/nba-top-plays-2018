@@ -8,10 +8,10 @@
 		overflow hidden
 		&:after
 			content ''
-			display block
+			display none
 			position absolute
 			width 100%
-			height $play-height * 0.75
+			height $play-height * 1
 			bottom $play-height * 0.5
 			left 0
 			background linear-gradient(to top, $fg,rgba($primary, 0) 100%)
@@ -41,6 +41,7 @@
 				opacity 1
 				.title
 					set-type-size(large, false)
+					background $fg
 			.title
 				margin 0
 				width 100%
@@ -48,9 +49,11 @@
 				set-type-size(medium, false)
 				line-height 1.2
 				text-shadow 0 0 3px rgba($fg, 0.5)
+				padding 0.5rem
 
 			.info
 				margin-top 0.5rem
+				padding 0 0.5rem
 				display flex
 				justify-content space-between
 				transition opacity 500ms ease-in-out

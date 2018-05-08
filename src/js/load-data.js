@@ -48,8 +48,14 @@ function cleanData(data) {
 		created_utc: +d.created_utc,
 		play: d.play === 'TRUE',
 		not: d.not === 'TRUE',
-		player: d.player.split(',').map(d => d.trim()),
-		tag: d.tag.split(',').map(d => d.trim()),
+		player: d.player
+			.split(',')
+			.map(v => v.trim())
+			.filter(v => v),
+		tag: d.tag
+			.split(',')
+			.map(v => v.trim())
+			.filter(v => v),
 		display_score: formatNum(+d.score),
 		display_comments: formatNum(+d.num_comments),
 		display_views: formatComma(+d.views),

@@ -25,7 +25,9 @@ function prefix(prop) {
 
 function resize() {
 	const width = $body.node().offsetWidth;
-	const height = Math.floor(window.innerHeight - $plays.node().offsetHeight / 2);
+	const height = Math.floor(
+		window.innerHeight - $plays.node().offsetHeight / 2
+	);
 	$content.st({ width });
 	$media.st({ height });
 	if (previousWidth !== width) {
@@ -66,6 +68,28 @@ function swapVideo() {
 	});
 }
 
+function setupFilters() {
+	const t1 = playData.map(d => d.tag);
+	const t2 = [].concat(...t1);
+	const tags = d3
+		.nest()
+		.key(d => d)
+		.rollup(v => v.length)
+		.entries(t2);
+
+	console.log(tags);
+
+	const p1 = playData.map(d => d.player);
+	const p2 = [].concat(...p1);
+	const players = d3
+		.nest()
+		.key(d => d)
+		.rollup(v => v.length)
+		.entries(p2);
+
+	console.log(players);
+}
+
 function setup() {
 	$play = $plays.selectAll('.play').data(playData);
 
@@ -82,6 +106,8 @@ function setup() {
 	$info.append('p.info__date').text(d => `${d.display_date}`);
 
 	$play = $playEnter.merge($play);
+
+	setupFilters();
 	swapVideo();
 }
 
