@@ -48,6 +48,8 @@ function cleanData(data) {
 		created_utc: +d.created_utc,
 		play: d.play === 'TRUE',
 		not: d.not === 'TRUE',
+		player: d.player.split(',').map(d => d.trim()),
+		tag: d.tag.split(',').map(d => d.trim()),
 		display_score: formatNum(+d.score),
 		display_comments: formatNum(+d.num_comments),
 		display_views: formatComma(+d.views),
@@ -62,7 +64,6 @@ export default function loadData() {
 			if (err) reject(err);
 			const cleaned = cleanData(response[0]);
 			const refined = refine(cleaned);
-			// console.table(refined);
 			resolve(refined);
 		});
 	});

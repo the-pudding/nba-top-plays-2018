@@ -13,6 +13,7 @@ let currentIndex = 0;
 
 const $body = d3.select('body');
 const $content = $body.select('#content');
+const $media = $body.select('#media');
 const $plays = $body.select('#plays');
 const $video = $body.select('video');
 const $videoEl = $video.node();
@@ -24,7 +25,9 @@ function prefix(prop) {
 
 function resize() {
 	const width = $body.node().offsetWidth;
+	const height = Math.floor(window.innerHeight - $plays.node().offsetHeight / 2);
 	$content.st({ width });
+	$media.st({ height });
 	if (previousWidth !== width) {
 		previousWidth = width;
 	}

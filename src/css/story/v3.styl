@@ -11,10 +11,10 @@
 			display block
 			position absolute
 			width 100%
-			height $play-height * 1.25
-			bottom 0
+			height $play-height * 0.75
+			bottom $play-height * 0.5
 			left 0
-			background linear-gradient(to bottom, rgba($primary, 0), #000 100%)
+			background linear-gradient(to top, $fg,rgba($primary, 0) 100%)
 	#plays
 		position absolute
 		z-index set-index(overlay)
@@ -65,9 +65,9 @@
 		top 0
 		left 0
 		width 100%
-		height 100vh
+		overflow hidden
 		video
-			position fixed
+			position absolute
 			top 50%
 			left 50%
 			min-width 100%
@@ -77,3 +77,5 @@
 			transform translate(-50%, -50%)
 		.media-overlay
 			opacity 0.5
+			min-height 100%
+			height 100vh
