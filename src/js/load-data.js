@@ -12,42 +12,26 @@ function formatDate(timestamp) {
 }
 
 function refine(data) {
-	const plays = data.filter(d => d.play && !d.not);
-	const nested = d3
-		.nest()
-		.key(d => d.week)
-		.entries(plays)
-		.map(d => d.values);
-	const flattened = [].concat(...nested);
-	flattened.sort((a, b) => d3.ascending(a.created_utc, b.created_utc));
+	data.sort((a, b) => d3.ascending(a.created_utc, b.created_utc));
+	return data;
+}
 
-	// plays.sort((a, b) => d3.descending(a.views, b.views));
-	// const s = plays.filter(d => d.views >= 250000);
-
-	// const nested2 = d3
-	// 	.nest()
-	// 	.key(d => d.week)
-	// 	.rollup(v => v)
-	// 	.entries(s)
-	// 	.map(d => d.value);
-	// const flattened2 = [].concat(...nested2);
-	// flattened2.sort((a, b) => d3.ascending(a.created_utc, b.created_utc));
-
-	// console.table(flattened);
-	// console.table(flattened2);
-	return flattened;
+function getOffset(data, index) {
+	const trans = 0.5 * 2;
+	const sub = index * trans;
+	const sum = d3.sum(data.filter((d, i) => i < index).map(d => d.duration));
+	return Math.max(0, sum - sub);
 }
 
 function cleanData(data) {
-	return data.map(d => ({
+	const clean = data.map((d, i) => ({
 		...d,
+		rank_chron: i,
 		score: +d.score,
 		num_comments: +d.num_comments,
 		views: +d.views,
-		week: +d.week,
 		created_utc: +d.created_utc,
-		play: d.play === 'TRUE',
-		not: d.not === 'TRUE',
+		duration: +d.duration,
 		player: d.player
 			.split(',')
 			.map(v => v.trim())
@@ -62,6 +46,25 @@ function cleanData(data) {
 		display_date: formatDate(+d.created_utc),
 		display_title: d.custom_title || d.title
 	}));
+
+	const withOffsetChron = clean.map(d => ({
+		...d,
+		offset_chron: getOffset(clean, d.rank_chron)
+	}));
+
+	withOffsetChron.sort((a, b) => d3.descending(a.views, b.views));
+
+	const withRankViews = withOffsetChron.map((d, i) => ({
+		...d,
+		rank_views: i
+	}));
+
+	const withOffset = withRankViews.map(d => ({
+		...d,
+		offset_views: getOffset(withRankViews, d.rank_views)
+	}));
+	window.out = JSON.stringify(withOffset, null, 2)
+	return withOffset;
 }
 
 export default function loadData() {

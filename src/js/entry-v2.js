@@ -75,7 +75,7 @@ function swapVideo() {
 
 	$play.classed('is-active', (d, i) => i === currentIndex);
 	const d = playlistData[currentIndex];
-	$videoEl.src = `assets/video/${d.shortcode}.mp4`;
+	$videoEl.src = `assets/video/${d.created_utc}-${d.shortcode}.mp4`;
 	$videoEl.load();
 	$video.on('canplaythrough', () => {
 		console.log('a', $videoEl.paused);

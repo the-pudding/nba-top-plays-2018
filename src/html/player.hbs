@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang='en' data-version='{{timestamp}}'>
+
+<head>
+
+	{{> base/meta}}
+
+	<!-- smoosh -->
+	<link rel='stylesheet' href='bundle.css' />
+	<!-- endsmoosh -->
+
+	<!-- boilerplate.css -->
+
+	{{> base/font}}
+
+	<!-- smoosh -->
+	<script src='critical.js'></script>
+	<!-- endsmoosh -->
+
+	{{!-- {{> base/analytics }} --}}
+
+</head>
+
+<body id='player' class='tk-publico'>
+
+	{{> base/header }}
+
+	<main id='content'>
+		<div id='media'>
+			<video playsinline muted></video>
+			<div class='media-overlay'></div>
+			<div class='media-progress'>
+				<span class='progress-bar'></span>
+			</div>
+		</div>
+		<div id='plays'></div>
+	</main>
+
+	<script src='{{basepath}}assets/scripts/d3.v4.12.0+jetpack.min.js'></script>
+	<script src='bundle-player.js?version={{timestamp}}' async></script>
+</body>
+
+</html>

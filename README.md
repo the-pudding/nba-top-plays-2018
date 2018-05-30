@@ -147,5 +147,20 @@ Run `make live` to deploy and bust cache. If you only made changes to html/css/j
 * enable anayltics: be sure analytics partial is included (`analytics.hbs`)
 * fill out metadata: `template-data/meta.json`
 * create two social images:
-	* Facebook: 1200 x 628 (`src/assets/social/social-facebook.jpg`)
-	* Twitter: 1024 x 576 (`src/assets/social/social-twitter.jpg`)
+  _ Facebook: 1200 x 628 (`src/assets/social/social-facebook.jpg`)
+  _ Twitter: 1024 x 576 (`src/assets/social/social-twitter.jpg`)
+
+# Poster
+
+```
+for mp4 in src/assets/video/*.mp4; do
+	ffmpeg -itsoffset -1 -i $mp4 -vframes 1 -filter:v scale="320:-1" -f image2 ${mp4%%.mp4}.jpg
+	# ffmpeg -i $mp4 -vframes 1 -filter:v scale="min(ih, 480\)" -f image2 ${mp4%%.mp4}.jpg
+done
+```
+
+```
+for mp4 in src/assets/video/*.mp4; do
+ ffmpeg -itsoffset -1 -i $mp4 -vframes 1 -filter:v scale=320:-1 -f image2 ${mp4%%.mp4}.png
+done
+```

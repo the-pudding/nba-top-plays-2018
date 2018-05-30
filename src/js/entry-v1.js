@@ -36,7 +36,7 @@ function swapVideo() {
 	const d = playData[currentIndex];
 
 	// set the source of the video element
-	$videoEl.src = `assets/video/${d.shortcode}.mp4`;
+	$videoEl.src = `assets/video/${d.created_utc}-${d.shortcode}.mp4`;
 
 	// load the video
 	$videoEl.load();

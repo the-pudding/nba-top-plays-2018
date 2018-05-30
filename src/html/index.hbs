@@ -21,22 +21,32 @@
 
 </head>
 
-<body class='tk-publico'>
+<body id='v0'>
 
 	{{> base/header }}
 
 	<main id='content'>
-
 		{{> story/intro }}
-		 {{> story/plays }}
-
+		<div id='media'>
+			<div id='player-container'>
+				<div id='player'></div>
+			</div>
+		</div>
+		<div id='plays-container'>
+			<div id='plays'></div>
+		</div>
+		<p class='byline'>Created by
+			<a href='{{meta.author.url}}' target='_blank'>
+				<strong>{{meta.author.name}}</strong>
+			</a>. Data was collected daily using the Reddit API. Only posts with <a href='https:streamable.com' target='_blank'>streamable</a> videos and over 250,000 views were included.
+		</p>
 	</main>
 
 	{{!--
 	<script src='{{basepath}}assets/scripts/d3.v5.0.0.min.js'></script> --}}
 	<script src='{{basepath}}assets/scripts/d3.v4.12.0+jetpack.min.js'></script>
 	<script src='bundle.js?version={{timestamp}}' async></script>
-	{{!-- <script src='https://pudding.cool/assets/scripts/pudding-footer.js' async></script> --}}
+	<script src='https://pudding.cool/assets/scripts/pudding-footer.js' async></script>
 </body>
 
 </html>

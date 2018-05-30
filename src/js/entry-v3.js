@@ -3,12 +3,10 @@ import debounce from 'lodash.debounce';
 import isMobile from './utils/is-mobile';
 import loadData from './load-data';
 
-const ASPECT = 16 / 9;
 const REM = 16;
 const PLAY_WIDTH = REM * 20;
 
 let playData = null;
-let previousWidth = 0;
 let currentIndex = 0;
 
 const $body = d3.select('body');
@@ -30,9 +28,6 @@ function resize() {
 	);
 	$content.st({ width });
 	$media.st({ height });
-	if (previousWidth !== width) {
-		previousWidth = width;
-	}
 }
 
 function swapVideo() {
@@ -47,7 +42,7 @@ function swapVideo() {
 	const d = playData[currentIndex];
 
 	// set the source of the video element
-	$videoEl.src = `assets/video/${d.shortcode}.mp4`;
+	$videoEl.src = `assets/video/${d.created_utc}-${d.shortcode}.mp4`;
 
 	// load the video
 	$videoEl.load();
@@ -77,8 +72,6 @@ function setupFilters() {
 		.rollup(v => v.length)
 		.entries(t2);
 
-	console.log(tags);
-
 	const p1 = playData.map(d => d.player);
 	const p2 = [].concat(...p1);
 	const players = d3
@@ -101,7 +94,6 @@ function setup() {
 	$playEnter.append('p.title').text(d => d.display_title);
 	const $info = $playEnter.append('div.info');
 	$info.append('p.info__views').text(d => `${d.display_views} views`);
-	// $info.append('p.info__score').text(d => `${formatComma(d.score)} upvotes`);
 	$info.append('p.info__comments').text(d => `${d.display_comments} comments`);
 	$info.append('p.info__date').text(d => `${d.display_date}`);
 

@@ -1,25 +1,34 @@
 .intro
 	margin 0 auto
-	padding 4rem 1rem 1.5rem 1rem
+	padding 4.5rem 1rem 0rem 1rem
+	position relative
+	z-index set-index('overlay')
+
+	.title
+		font-weight 900
+		color $primary
 
 	&__hed
 		max-width 60rem
 		margin 0 auto
 		padding-top 5rem
-		font-weight 400
+		font-weight 900
 		text-align center
-		set-type-size('xx-large', true)
-		+mq('bp-3')
-			set-type-size('xxx-large', true)
-		+mq('bp-5')
-			set-type-size('xxxx-large', true)
+		set-type-size('large', true)
+		display none
+		// +mq('bp-3')
+		// 	set-type-size('xxx-large', true)
+		// +mq('bp-5')
+		// 	set-type-size('xxxx-large', true)
 	
 	&__byline
-		max-width $column-width
+		// position absolute
+		// top 0
+		// right 0
+		max-width 26rem
 		margin 0 auto
-		padding-top 5rem
-		padding-bottom 1.5rem
-		text-align center
+		padding 0 1rem
+		// text-align center
 		set-type-size('small', true)
 		
 	&__dek
@@ -28,3 +37,16 @@
 		padding-top 1.5rem
 		text-align center
 		set-type-size('medium', true)
+
+	&__prelude
+		max-width 24rem
+		margin 0 auto
+		padding-top 1.5rem
+		set-type-size('medium', true)
+		// line-height 1.4
+		text-align justify
+	
+	em
+		margin-top 1rem
+		display block
+		set-type-size('x-small', true)

@@ -4,6 +4,7 @@ module.exports = {
 		'bundle-v1': './src/js/entry-v1.js',
 		'bundle-v2': './src/js/entry-v2.js',
 		'bundle-v3': './src/js/entry-v3.js',
+		'bundle-player': './src/js/entry-player.js',
 		critical: './src/js/critical.js'
 	},
 	output: {

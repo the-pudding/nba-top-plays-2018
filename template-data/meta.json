@@ -1,16 +1,15 @@
 {
-	"title": "Title Case Headline Goes Here",
-	"description":
-		"Your dek goes here. It is probably one or two sentences that succinctly describe more explicitly what the story will be about.",
-	"url": "https://pudding.cool/year/month/name/",
-	"keywords": "tk",
+	"title": "NBA Top Plays 2017-18",
+	"description": "According Reddit NBA. Spoiler: there will be LeBron.",
+	"url": "https://pudding.cool/2018/05/nba-top-plays/",
+	"keywords": "NBA, basketball, plays, top, dunk, clutch, LeBron",
 	"imgFacebook":
-		"https://pudding.cool/year/month/name/assets/social/social-facebook.jpg",
+		"https://pudding.cool/2018/05/nba-top-plays/assets/social/social-facebook.jpg",
 	"imgTwitter":
-		"https://pudding.cool/year/month/name/assets/social/social-twitter.jpg",
+		"https://pudding.cool/2018/05/nba-top-plays/assets/social/social-twitter.jpg",
 	"author": {
-		"name": "Author Name",
-		"url": "https://twitter.com/puddingviz",
-		"twitterHandle": "@puddingviz"
+		"name": "Russell Goldenberg",
+		"url": "https://pudding.cool/author/russell-goldenberg",
+		"twitterHandle": "@codenberg"
 	}
 }
