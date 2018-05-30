@@ -3,9 +3,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
 	entry: {
 		bundle: './src/js/entry.js',
-		'bundle-v1': './src/js/entry-v1.js',
-		'bundle-v2': './src/js/entry-v2.js',
-		'bundle-v3': './src/js/entry-v3.js',
 		critical: './src/js/critical.js'
 	},
 	output: {

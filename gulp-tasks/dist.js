@@ -1,16 +1,16 @@
-const gulp = require('gulp')
-const runSequence = require('run-sequence')
+const gulp = require('gulp');
+const runSequence = require('run-sequence');
 
 // run all dist tasks to deploy
-gulp.task('dist', (cb) => {
+gulp.task('dist', cb => {
 	runSequence(
 		'clean-dist',
 		'css-dist',
 		'html-dist',
-		'js-dist-critical',
 		'js-dist',
+		'js-dist-critical',
 		'smoosh-dist',
 		'assets-dist',
 		cb
-	)
-})
+	);
+});
