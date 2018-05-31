@@ -1,116 +1,115 @@
 /* CUSTOM STORY STYLE */
-#v0
+body
 	background-color $fg
 	color $bg
 	font-family $sans
 	
-	#content
-		overflow hidden
-		margin-bottom 3rem
-		padding 0 1rem
+#content
+	overflow hidden
+	margin-bottom 3rem
+	padding 0 1rem
 
-	#media
-		// z-index set-index(bottom)
-		max-width 60rem
-		margin 0 auto
-		position relative
-		padding-top 1.5rem
+#media
+	max-width 60rem
+	margin 0 auto
+	position relative
+	padding-top 1.5rem
 
-	#plays-container
-		margin 0 auto
-		overflow hidden
-		height $play-height
-		position relative
-		&:after
-			position absolute
-			top 0
-			display block
-			content ''
-			width 100%
-			height $play-height
-			z-index 100
-			pointer-events none
-			background linear-gradient(to right, rgba($fg,0) 0%,rgba($fg,1) 15%,rgba($fg,1) 100%)
-			right -85%
-			+mq('bp-3')
-				background linear-gradient(to right, rgba($fg,0) 0%,rgba($fg,1) 40%,rgba($fg,1) 100%)
-				right -60%
-		
-	#player-container
+#plays-container
+	margin 0 auto
+	overflow hidden
+	height $play-height
+	position relative
+	&:after
+		position absolute
+		top 0
+		display block
+		content ''
 		width 100%
-		min-height 180px
-		margin 0 auto
-		margin-bottom 1rem
+		height $play-height
+		z-index 100
+		pointer-events none
+		background linear-gradient(to right, rgba($fg,0) 0%,rgba($fg,1) 15%,rgba($fg,1) 100%)
+		right -85%
 		+mq('bp-3')
-			min-height 265px
-		+mq('bp-4')
-			min-height 355px
-		+mq('bp-5')
-			min-height 445px
+			background linear-gradient(to right, rgba($fg,0) 0%,rgba($fg,1) 40%,rgba($fg,1) 100%)
+			right -60%
+	
+#player-container
+	width 100%
+	min-height 180px
+	margin 0 auto
+	margin-bottom 1rem
+	+mq('bp-3')
+		min-height 265px
+	+mq('bp-4')
+		min-height 355px
+	+mq('bp-5')
+		min-height 445px
 
-	#player
+#player
+	width 100%
+
+#plays
+	width 100%
+	display flex
+	align-items flex-start
+	height $play-height
+	transition transform 500ms ease-in-out
+	user-select none
+
+	.play
 		width 100%
-
-	#plays
-		width 100%
-		display flex
-		align-items flex-start
-		height $play-height
-		transition transform 500ms ease-in-out
-		user-select none
-
-		.play
-			width 100%
-			position relative
-			padding-right 1.5rem
-			width $play-width
-			opacity 0.33
-			transition opacity 500ms ease-in-out
-			flex 1 0 auto
-			p
-				margin 0
-			&.is-active
-				opacity 1
-				.title
-					background $fg
-					color $primary
+		position relative
+		padding-right 1.5rem
+		width $play-width
+		opacity 0.33
+		transition opacity 500ms ease-in-out
+		flex 1 0 auto
+		p
+			margin 0
+		&.is-active
+			opacity 1
 			.title
-				margin 0
-				width 100%
-				font-weight 900
-				set-type-size(medium, false)
-				line-height 1.2
-				padding-top 0.5rem
+				background $fg
+				color $primary
+		.title
+			margin 0
+			width 100%
+			font-weight 900
+			set-type-size(medium, false)
+			line-height 1.2
+			padding-top 0.5rem
 
-			.info
-				padding 0.5rem 0
-				display flex
-				justify-content space-between
-				transition opacity 500ms ease-in-out
-				border-bottom 1px dashed $gray-dark
-				p
-					set-type-size(x-small, false)
-					line-height 1
-					font-weight 500
-					text-transform uppercase
+		.info
+			padding 0.5rem 0
+			display flex
+			justify-content space-between
+			transition opacity 500ms ease-in-out
+			border-bottom 1px dashed $gray-dark
+			p
+				set-type-size(x-small, false)
+				line-height 1
+				font-weight 500
+				text-transform uppercase
 
-	.toggle
-		display flex
-		justify-content center
-		margin-bottom 1rem
-		button
-			cursor pointer
-			text-transform uppercase
-			set-type-size(small, false)
-			font-weight 500
-			padding 0.25em 0.5em
-			line-height 1
-			background-color transparent
-			border-bottom 2px solid transparent
-			color $gray
-			&.is-active
-				color $off-white
-				border-bottom 1px solid $off-white
+.toggle
+	display flex
+	justify-content center
+	margin-bottom 1rem
+	button
+		cursor pointer
+		text-transform uppercase
+		set-type-size(small, false)
+		font-weight 500
+		padding 0.25em 0.5em
+		line-height 1
+		background-color transparent
+		border-bottom 2px solid transparent
+		color $gray
+		&.is-active
+			color $off-white
+			border-bottom 1px solid $off-white
 
 .byline
 	max-width 26rem

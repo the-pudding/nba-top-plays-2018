@@ -3,23 +3,23 @@ import Youtube from './youtube';
 
 const REM = 16;
 const PLAY_WIDTH = REM * 20;
-const PLAY_HEIGHT = REM * 8;
 
 let playData = [];
 let currentIndex = -1;
 let prop = 'chron';
 
+const $body = d3.select('body');
 const $content = d3.select('#content');
 const $plays = d3.select('#plays');
 const $btn = $content.selectAll('.toggle .btn');
 let $play = null;
 
-function prefix(prop) {
-	return [prop, `webkit-${prop}`, `ms-${prop}`];
+function prefix(p) {
+	return [p, `webkit-${p}`, `ms-${p}`];
 }
 
 function resize() {
-	const width = d3.select('body').node().offsetWidth;
+	const width = $body.node().offsetWidth;
 	$content.st({ width });
 	Youtube.resize();
 }
@@ -75,7 +75,6 @@ function setupPlays() {
 
 	const $info = $playEnter.append('div.info');
 	$info.append('p.info__views').text(d => `${d.display_views} views`);
-	// $info.append('p.info__comments').text(d => `${d.display_comments} comments`);
 	$info.append('p.info__date').text(d => `${d.display_date}`);
 	$playEnter.append('p.title').text(d => d.display_title);
 

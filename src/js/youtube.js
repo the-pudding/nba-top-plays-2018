@@ -52,11 +52,7 @@ function handleError({ data }) {
 	console.error('error', data);
 }
 
-function handleReady({ target }) {
-	// console.log({ target });
-	// player.playVideo();
-	// player.seekTo(seconds);
-}
+// function handleReady() {}
 
 function handleStateChange({ target, data }) {
 	state = data;
@@ -79,7 +75,7 @@ function setupPlayer() {
 			color: 'white'
 		},
 		events: {
-			onReady: handleReady,
+			// onReady: handleReady,
 			onStateChange: handleStateChange,
 			onError: handleError
 		}
