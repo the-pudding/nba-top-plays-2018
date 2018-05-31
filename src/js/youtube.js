@@ -25,10 +25,11 @@ function resize() {
 	if (player) {
 		const w = $playerContainer.node().offsetWidth;
 		const h = w / RATIO;
-		const ih = window.innerHeight - PLAY_HEIGHT * 1.5;
+		const ih = window.innerHeight - PLAY_HEIGHT * 1.75;
 		const width = h > ih ? Math.floor(ih * RATIO) : w;
 		const height = h > ih ? ih : Math.floor(width / RATIO);
 		$playsContainer.st({ width });
+		$playerContainer.st({ width });
 		player.setSize(width, height);
 	}
 }
