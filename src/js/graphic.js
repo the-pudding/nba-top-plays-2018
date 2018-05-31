@@ -11,7 +11,8 @@ let prop = 'chron';
 const $body = d3.select('body');
 const $content = d3.select('#content');
 const $plays = d3.select('#plays');
-const $btn = $content.selectAll('.toggle .btn');
+const $btnToggle = $content.selectAll('.toggle .btn');
+const $btnSeek = $content.selectAll('.seek .btn');
 let $play = null;
 
 function prefix(p) {
@@ -88,7 +89,7 @@ function setupPlays() {
 
 function handleToggle() {
 	const $sel = d3.select(this);
-	$btn.classed('is-active', false);
+	$btnToggle.classed('is-active', false);
 	$sel.classed('is-active', true);
 	const id = $sel.at('data-id');
 	prop = $sel.at('data-prop');
@@ -97,14 +98,35 @@ function handleToggle() {
 	Youtube.loadVideo(id);
 }
 
+function handleSeek() {
+	const $sel = d3.select(this);
+	const disabled = $sel.classed('is-disabled');
+	const playing = Youtube.isPlaying();
+	if (!disabled && playing) {
+		$btnSeek.classed('is-disabled', false);
+		const dir = $sel.classed('prev') ? -1 : 1;
+		let index = currentIndex + dir;
+		index = Math.min(Math.max(0, index), playData.length - 1);
+		if (index === 0 || index === playData.length)
+			$sel.classed('is-disabled', true);
+		const timestamp = playData[index][`offset_${prop}`];
+		Youtube.seek(timestamp);
+	}
+}
+
 function setupToggle() {
-	$btn.on('click', handleToggle);
+	$btnToggle.on('click', handleToggle);
+}
+
+function setupSeek() {
+	$btnSeek.on('click', handleSeek);
 }
 
 function setup(data) {
 	playData = data;
 	setupPlays();
 	setupToggle();
+	setupSeek();
 	Youtube.setup();
 	progress();
 	resize();

@@ -6,7 +6,7 @@ let state = -1;
 
 const RATIO = 16 / 9;
 const REM = 16;
-const PLAY_HEIGHT = REM * 8;
+const PLAY_HEIGHT = REM * 10;
 
 const $media = d3.select('#media');
 const $playerContainer = d3.select('#player-container');
@@ -19,6 +19,14 @@ function getCurrentTime() {
 
 function loadVideo(id) {
 	player.loadVideoById(id);
+}
+
+function seek(timestamp) {
+	player.seekTo(timestamp);
+}
+
+function isPlaying() {
+	return state === 1;
 }
 
 function resize() {
@@ -105,4 +113,12 @@ function init() {
 	});
 }
 
-export default { init, setup, resize, getCurrentTime, loadVideo };
+export default {
+	init,
+	setup,
+	resize,
+	getCurrentTime,
+	loadVideo,
+	seek,
+	isPlaying
+};

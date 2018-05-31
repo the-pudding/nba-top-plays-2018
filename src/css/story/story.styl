@@ -35,6 +35,26 @@ body
 			background linear-gradient(to right, rgba($fg,0) 0%,rgba($fg,1) 40%,rgba($fg,1) 100%)
 			right -60%
 	
+	button
+		line-height 1
+		border-radius 3px
+		position absolute
+		top 0
+		left 0
+		z-index set-index(overlay)
+		background-color $gray-dark
+		&:hover
+			background-color $gray
+		&.next
+			right 0
+			left auto
+		&.is-disabled
+			cursor not-allowed
+			background-color rgba($gray-dark, 0.5)
+		svg
+			display block
+			stroke $fg
+			
 #player-container
 	width 100%
 	min-height 180px
@@ -57,6 +77,7 @@ body
 	height $play-height
 	transition transform 500ms ease-in-out
 	user-select none
+	margin-top 2rem
 
 	.play
 		width 100%

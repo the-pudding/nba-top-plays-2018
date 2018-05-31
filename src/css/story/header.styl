@@ -16,3 +16,22 @@ header
 			fill-opacity 0.75
 			display block
 			width 100%
+	
+.header__patreon
+	position absolute
+	top 1.5rem
+	left 1.5rem
+	font-weight 500
+	text-transform uppercase
+	z-index set-index(overlay)
+	set-type-size('x-small', false)
+	line-height 1
+	background-color $gray-dark
+	border none
+	border-radius 3px
+	padding 0.5em
+	display none
+	+mq('bp-3')
+		display block
+	&:hover
+		background-color $gray
