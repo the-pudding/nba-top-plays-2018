@@ -96,7 +96,7 @@ function init() {
 		loadScript();
 
 		let count = 0;
-		const maxCount = 100; // 5 seconds
+		const maxCount = 300; // 15 seconds
 		const check = () => {
 			count += 1;
 			if (ready) resolve();
