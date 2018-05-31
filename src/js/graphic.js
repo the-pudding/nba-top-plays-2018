@@ -55,6 +55,7 @@ function progress() {
 }
 
 function setupPlays() {
+	$btnSeek.classed('is-disabled', (d, i) => i === 0)
 	const prefixes = prefix('transform');
 	prefixes.forEach(pre => {
 		$plays.node().style[pre] = 'translate(0, 0)';
