@@ -76,7 +76,12 @@ function setupPlays() {
 	const $info = $playEnter.append('div.info');
 	$info.append('p.info__views').text(d => `${d.display_views} views`);
 	$info.append('p.info__date').text(d => `${d.display_date}`);
-	$playEnter.append('p.title').text(d => d.display_title);
+	const $title = $playEnter.append('p.title');
+	$title
+		.append('a')
+		.text(d => d.display_title)
+		.at('href', d => `https://reddit.com/r/nba/${d.id}`)
+		.at('target', '_blank');
 
 	$play = $playEnter.merge($play);
 }

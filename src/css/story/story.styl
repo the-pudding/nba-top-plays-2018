@@ -70,9 +70,10 @@ body
 			margin 0
 		&.is-active
 			opacity 1
-			.title
-				background $fg
+			.title a
 				color $primary
+				&:visited, &:active
+					color $primary
 		.title
 			margin 0
 			width 100%
@@ -80,6 +81,12 @@ body
 			set-type-size(medium, false)
 			line-height 1.2
 			padding-top 0.5rem
+			a
+				color $bg
+				border none
+				&:visited, &:active
+					color $bg
+					border none
 
 		.info
 			padding 0.5rem 0
