@@ -46,6 +46,16 @@
 	#player-container
 		width 100%
 		padding 0 1rem
+		min-height 180px
+		+mq('bp-3')
+			min-height 265px
+		+mq('bp-4')
+			min-height 355px
+		+mq('bp-5')
+			min-height 445px
+		+mq('bp-6')
+			min-height 544px
+
 
 	#player
 		width 100%
@@ -53,7 +63,7 @@
 	#plays
 		width 100%
 		display flex
-		align-items flex-end
+		align-items flex-start
 		height $play-height
 		transition transform 500ms ease-in-out
 
@@ -78,23 +88,41 @@
 				font-weight 900
 				set-type-size(medium, false)
 				line-height 1.2
-				padding 0.5rem
+				padding-top 0.5rem
 
 			.info
-				margin-top 0.5rem
-				padding 0 0.5rem
+				padding 0.5rem 0
 				display flex
 				justify-content space-between
 				transition opacity 500ms ease-in-out
+				border-bottom 1px dashed $gray-dark
 				p
 					set-type-size(x-small, false)
 					line-height 1
 					font-weight 500
 					text-transform uppercase
 
+	.toggle
+		display flex
+		justify-content center
+		margin-bottom 1rem
+		button
+			cursor pointer
+			text-transform uppercase
+			set-type-size(small, false)
+			font-weight 500
+			padding 0.25em 0.5em
+			line-height 1
+			background-color transparent
+			border-bottom 2px solid transparent
+			color $gray
+			&.is-active
+				color $off-white
+				border-bottom 1px solid $off-white
 
 .byline
 	max-width 26rem
 	margin 3rem auto 0 auto
 	padding 0 1rem
 	set-type-size('small', true)
+

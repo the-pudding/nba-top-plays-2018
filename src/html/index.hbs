@@ -28,6 +28,10 @@
 	<main id='content'>
 		{{> story/intro }}
 		<div id='media'>
+			<ul class='toggle'>
+				<li><button class='btn is-active' data-prop='chron' data-id='Y53dlJ4hsIg'>Chronological</button></li>
+				<li><button class='btn' data-prop='views' data-id='E3i7xmYAsQg'>Most-viewed</button></li>
+			</ul>
 			<div id='player-container'>
 				<div id='player'></div>
 			</div>
@@ -38,7 +42,7 @@
 		<p class='byline'>Created by
 			<a href='{{meta.author.url}}' target='_blank'>
 				<strong>{{meta.author.name}}</strong>
-			</a>. Data was collected daily using the Reddit API. Only posts with <a href='https:streamable.com' target='_blank'>streamable</a> videos and over 250,000 views were included.
+			</a>. Data was collected daily using the Reddit API. Only posts with <a href='https://streamable.com' target='_blank'>streamable</a> videos and over 250,000 views were included.
 		</p>
 	</main>
 

@@ -17,6 +17,10 @@ function getCurrentTime() {
 	return false;
 }
 
+function loadVideo(id) {
+	player.loadVideoById(id);
+}
+
 function resize() {
 	if (player) {
 		const w = $playerContainer.node().offsetWidth;
@@ -104,4 +108,4 @@ function init() {
 	});
 }
 
-export default { init, setup, resize, getCurrentTime };
+export default { init, setup, resize, getCurrentTime, loadVideo };
