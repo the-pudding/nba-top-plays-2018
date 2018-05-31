@@ -30,8 +30,11 @@
 			height $play-height
 			z-index 100
 			pointer-events none
-			right -60%
-			background linear-gradient(to right, rgba($fg,0) 0%,rgba($fg,1) 50%,rgba($fg,1) 100%)
+			background linear-gradient(to right, rgba($fg,0) 0%,rgba($fg,1) 15%,rgba($fg,1) 100%)
+			right -85%
+			+mq('bp-3')
+				background linear-gradient(to right, rgba($fg,0) 0%,rgba($fg,1) 40%,rgba($fg,1) 100%)
+				right -60%
 		
 	#player-container
 		width 100%

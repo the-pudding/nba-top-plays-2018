@@ -23,7 +23,7 @@ function loadVideo(id) {
 
 function resize() {
 	if (player) {
-		const w = $playerContainer.node().offsetWidth;
+		const w = $media.node().offsetWidth;
 		const h = w / RATIO;
 		const ih = window.innerHeight - PLAY_HEIGHT * 1.75;
 		const width = h > ih ? Math.floor(ih * RATIO) : w;
