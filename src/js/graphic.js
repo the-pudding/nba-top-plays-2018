@@ -25,7 +25,7 @@ function resize() {
 	Youtube.resize();
 }
 
-function findCurrentPlay(t) {
+function findCurrentPlay(t = 0) {
 	const filtered = playData.filter(d => d[`offset_${prop}`] < t);
 	if (filtered.length) return filtered.pop();
 	return null;
@@ -55,7 +55,7 @@ function progress() {
 }
 
 function setupPlays() {
-	$btnSeek.classed('is-disabled', (d, i) => i === 0)
+	$btnSeek.classed('is-disabled', (d, i) => i === 0);
 	const prefixes = prefix('transform');
 	prefixes.forEach(pre => {
 		$plays.node().style[pre] = 'translate(0, 0)';

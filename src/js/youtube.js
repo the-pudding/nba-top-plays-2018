@@ -69,7 +69,7 @@ function handleStateChange({ target, data }) {
 
 function setupPlayer() {
 	player = new YT.Player('player', {
-		videoId: 'Y53dlJ4hsIg',
+		videoId: '08S9Pi9Kd3c',
 		playerVars: {
 			controls: 1,
 			cc_load_policy: 0,
